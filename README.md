@@ -87,9 +87,16 @@ its responds with:
 This is documented limitation (TODO: link).
 
 ## Web Scraping
-When API fail we have to resolve to [Web Scraping][Web-Scraping].
+When API fail, we have to resolve to [Web Scraping][Web-Scraping].
+
+node.js tools:
+
+- <https://www.npmjs.com/package/htmlparser2>
+- <https://www.npmjs.com/package/cheerio-cli>
 
 TODO: continue.
+
+
 
 <!-- reference style links -->
 
