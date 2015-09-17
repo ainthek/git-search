@@ -87,9 +87,55 @@ its responds with:
 This is documented limitation (TODO: link).
 
 ## Web Scraping
-When API fail we have to resolve to [Web Scraping][Web-Scraping].
+When API fail, we have to resolve to [Web Scraping][Web-Scraping].
+
+Sniffing Github UI we have discovered that two URS exists:
+
+Calling:
+	
+	https://github.com/search?l=javascript&q=Gruntfile.js+in%3Afilename+language:JavaScript&ref=searchresults&type=Code&utf8=✓
+
+Will result in 'these services' called:
+	
+	https://github.com/search/count?l=javascript&q=Gruntfile.js+in%3Afilename+language%3AJavaScript&ref=searchresults&type=Issues&utf8=%E2%9C%93
+	https://github.com/search/count?l=javascript&q=Gruntfile.js+in%3Afilename+language%3AJavaScript&ref=searchresults&type=Repositories&utf8=%E2%9C%93
+	https://github.com/search/count?l=javascript&q=Gruntfile.js+in%3Afilename+language%3AJavaScript&ref=searchresults&type=Users&utf8=%E2%9C%93
+	
+	https://github.com/search?l=javascript&q=Gruntfile.js+in%3Afilename+language:JavaScript&ref=searchresults&type=Code&utf8=%E2%9C%93
+
+It is calling 3 counts and one 'detailed search results'.
+
+To get count of Code:
+
+	
+	curl 'https://github.com/search/count?l=javascript&q=Gruntfile.js+in%3Afilename+language%3AJavaScript&ref=searchresults&type=Code&utf8=%E2%9C%93'
+	
+	<span class="counter">257,639</span>
+
+To get details of Code:
+
+	curl https://github.com/search?l=javascript&q=Gruntfile.js+in%3Afilename+language:JavaScript&ref=searchresults&type=Code&utf8=%E2%9C%93
+
+However this returns 'FALSE POSITIVES':
+
+	Example:
+	sylvinus/backbone-simpleapp-kitlers – grunt.js 
+	
+TODO: why ! ? 	
+
+- Can we make the query more specific ? if not explain (link)
+- if no we need to loop all results and filter out manually false positives
+- other ideas ?	
+
+
+node.js tools:
+
+- <https://www.npmjs.com/package/htmlparser2>
+- <https://www.npmjs.com/package/cheerio-cli>
 
 TODO: continue.
+
+
 
 <!-- reference style links -->
 
