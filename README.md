@@ -121,9 +121,25 @@ However this returns 'FALSE POSITIVES':
 	Example:
 	sylvinus/backbone-simpleapp-kitlers – grunt.js 
 	
-TODO: why ! ? 	
+	
+- Can we make the query more specific ? No.
+The repository search feature doesn't allow a filter which matches based on files included in repositories
+ 
+Workaround:
+Do it via the Search API
 
-- Can we make the query more specific ? if not explain (link)
+https://developer.github.com/v3/search/#search-code
+
+Each result will have a repository object which tells us which repository the file is in. However, the code Search API doesn't allow you to run global searches -- we need to scope our search to a specific file or repository:
+
+https://developer.github.com/changes/2013-10-18-new-code-search-requirements/
+
+Also, we can fetch up to 1000 results:
+
+https://developer.github.com/v3/search/#about-the-search-api
+
+That means that we would need to collect the data incrementally. For example, we could first fetch a list of all JavaScript or CoffeeScript repositories via the Repositories search API (https://developer.github.com/v3/search/#search-repositories) and then search for grunt.js files within those repositories 1-by-1 using the code search API.
+
 - if no we need to loop all results and filter out manually false positives
 - other ideas ?	
 
