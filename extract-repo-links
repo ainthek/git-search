@@ -1,3 +1,7 @@
 #!/bin/bash
 
-./node_modules/.bin/cheerio '.code-list-item .title > a:first-of-type'
+#./node_modules/.bin/cheerio '.code-list-item .title > a:first-of-type'
+
+# ./node_modules/.bin/cheerio '.code-list-item .title > a:first-of-type,.full-path a em' -o text | paste -s -d"\t\t\n"
+
+./node_modules/.bin/cheerio '.code-list-item .title > a' -a href | paste -s -d"\t\n"

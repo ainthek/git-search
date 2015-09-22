@@ -1,12 +1,10 @@
 #!/bin/bash
 
 
-count=$(
-	# better element ?
-	./node_modules/.bin/cheerio '.sort-bar h3' |\
-	# lame, FIXME, Showing 57,989 available code results
-	sed "s;.* \(Showing\|found\) \([^ ]\+\) .*;\2; ; s;,;;"
-)
 
-# TODO: check if number otherwise return 0
-[ $count -eq $count 2> /dev/null ] && echo $count || echo 0
+# better element ?
+./node_modules/.bin/cheerio '.sort-bar h3' |\
+# lame, FIXME, Showing 57,989 available code results
+sed "s;.* \(Showing\|found\) \([^ ]\+\) .*;\2; ; s;,;;" | grep "." 
+
+

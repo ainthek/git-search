@@ -1,0 +1,8 @@
+#!/bin/bash
+
+filename=$(basename "$1")
+path=$(dirname "$1")
+query="$filename in:path path:$path language:javascript"
+
+git-search "$query" $2 | extract-repo-links | grep "$1$"
+

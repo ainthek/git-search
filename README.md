@@ -148,7 +148,11 @@ So far these commands
 	
 	git-search "gruntfile.js in:path path:/ language:javascript" 10 | extract-repo-links
 
+	curl -s 'https://github.com/search?q=package.js%20in:path%20path:/%20language:javascript' | ./node_modules/.bin/cheerio '.full-path a' -a href
 
+	curl -s 'https://github.com/search?q=package.js%20in:path%20path:/%20language:javascript' | ./node_modules/.bin/cheerio '.full-path a em'
+
+	git-search-file "/test/index.js" 2
 
 <!-- reference style links -->
 
