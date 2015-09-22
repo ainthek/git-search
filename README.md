@@ -140,6 +140,12 @@ TODO: continue.
 
 ## 22.9.2015 update
 
+setup:
+	
+	npm install 
+	export $PATH=.;$PATH
+	
+
 So far these commands
 
 	git-search "gruntfile.js in:path path:/ language:javascript"
