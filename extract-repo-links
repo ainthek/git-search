@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./node_modules/.bin/cheerio '.code-list-item .title > a:first-of-type'

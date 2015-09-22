@@ -1,0 +1,24 @@
+#!/bin/bash
+
+url='https://github.com/search?q='$(url-encode-query "$1") # TODO: check whitespace encoding %20 vs + 
+echo "curl '$url'" 1>&2
+
+
+count=$(curl -s "$url" | extract-count)
+pages=$(( $count / 10 )) # can we change page size ?
+pages_cap="${2:-0}"
+max_requests=$(($pages<$pages_cap?$pages:$pages_cap))
+
+echo "# Query: $1" 1>&2
+echo "
+# Count: $count
+# Pages: $pages, 
+# Max Requests(cap): $max_requests
+" 1>&2
+
+for (( i=0; i < $max_requests; ++i ))
+do
+   curl -s "$url&p=$i"
+done
+
+

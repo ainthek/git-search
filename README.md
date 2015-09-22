@@ -61,7 +61,10 @@ Search code (NOT USABLE)
 
 Looking at [searching-code][searching-code] this seems to be an option:
 
-```Gruntfile.js in:path language:JavaScript```
+	Gruntfile.js in:path language:JavaScript
+	# or improved
+	gruntfile.js in:path path:/ language:javascript
+
 
 <https://github.com/search?l=javascript&q=Gruntfile.js+in%3Apath+language:JavaScript&ref=searchresults&type=Code&utf8=✓>
 
@@ -134,6 +137,16 @@ node.js tools:
 - <https://www.npmjs.com/package/cheerio-cli>
 
 TODO: continue.
+
+## 22.9.2015 update
+
+So far these commands
+
+	git-search "gruntfile.js in:path path:/ language:javascript"
+
+	git-search "gruntfile.js in:path path:/ language:javascript" 2 
+	
+	git-search "gruntfile.js in:path path:/ language:javascript" 10 | extract-repo-links
 
 
 
