@@ -143,7 +143,7 @@ TODO: continue.
 setup:
 	
 	npm install 
-	export $PATH=.;$PATH
+	export $PATH=$PWD:$PATH
 	
 
 So far these commands

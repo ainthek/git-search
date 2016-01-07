@@ -4,7 +4,12 @@
 
 # better element ?
 ./node_modules/.bin/cheerio '.sort-bar h3' |\
-# lame, FIXME, Showing 57,989 available code results
-sed "s;.* \(Showing\|found\) \([^ ]\+\) .*;\2; ; s;,;;" | grep "." 
 
+# lame, FIXME, Showing 57,989 available code results
+# FIXME: avoid sed if possible, because OSX version (without our xs-sed please)
+if type xs-sed &>/dev/null; then
+	xs-sed "s;.* \(Showing\|found\) \([^ ]\+\) .*;\2; ; s;,;;" | grep "." 
+else
+	sed "s;.* \(Showing\|found\) \([^ ]\+\) .*;\2; ; s;,;;" | grep "." 
+fi	
 
