@@ -18,8 +18,15 @@ so we implement this mini project as workaround.
 
 - gulp vs. grunt
 - test frameworks used in node.js projects (mocha, vs. tap)
-- ...
+- using unsecure node module in package json 
 
+### vulnerable modules in package.json
+
+see <https://nodesecurity.io/advisories/marked_redos>
+
+TODO: can we make better query ?
+
+	https://github.com/search?utf8=%E2%9C%93&q=package+marked+%270.3.2%27+path%3A%2F+extension%3Ajson&type=Code&ref=searchresults
 
 ### gulp vs. gunt
 
@@ -41,8 +48,9 @@ Just short summary, read below for more details:
 ## Background Story
 
 Repos Using Grunt = repos with Gruntfile.js. 
+
 1) How many Gruntfile.js are on github ? 
-2) Repository names having ./Gruntfile.js 
+2) Repository names having file ./Gruntfile.js 
 
 [Github API][Github-API] provides options to search:
 
@@ -90,9 +98,13 @@ its responds with:
 This is documented limitation (TODO: link).
 
 ## Web Scraping
+
 When API fail, we have to resolve to [Web Scraping][Web-Scraping].
 
-Sniffing Github UI we have discovered that two URS exists:
+Sniffing Github UI, we have discovered that two URLs exists:
+
+	- https://github.com/search
+	- https://github.com/search/count
 
 Calling:
 	
@@ -127,7 +139,7 @@ However this returns 'FALSE POSITIVES':
 TODO: why ! ? 	
 
 - Can we make the query more specific ? if not explain (link)
-- if no we need to loop all results and filter out manually false positives
+- if no, we need to loop all results and filter out manually false positives
 - other ideas ?	
 
 

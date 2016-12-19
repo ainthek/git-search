@@ -4,6 +4,7 @@ _url_encode(){
 	node -e "console.log(encodeURIComponent('$str'));"
 };
 url='https://github.com/search?q='$(_url_encode "$1") # TODO: check whitespace encoding %20 vs + 
+
 echo "# Query: $1" 1>&2
 echo "# curl '$url'" 1>&2
 
