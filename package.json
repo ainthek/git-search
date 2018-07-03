@@ -4,7 +4,9 @@
   "description": "Simple CLI aimed at 'usage research' backed by github. This may one day become part of bigger 'business intelligence' tools, to support",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,8 @@
   "homepage": "https://github.com/ainthek/git-search",
   "dependencies": {
     "cheerio-cli": "^0.1.0",
-    "htmlparser2": "^3.8.3"
-  }
+    "htmlparser2": "^3.8.3",
+    "snyk": "^1.88.0"
+  },
+  "snyk": true
 }
