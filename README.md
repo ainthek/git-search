@@ -7,6 +7,16 @@ This may one day become part of bigger 'business intelligence' tools, to support
 - Best practices searches (how to use it, how others use it ?)
 - Bad practices, QA tools (wrong usage, security vulnerabilities, bad performance codes)
 
+## update 2018/12/17
+
+I have found this recently,
+<https://github.com/standard/standard-packages/blob/master/tools/update.js>
+
+So this needs to be reviewed 
+
+--------------------
+
+
 ## Mission
 
 It is often needed to find out 'how many projects (repos, people) are using this framework, this api etc...
@@ -173,7 +183,7 @@ So far these commands
 	git-search-file "/test/index.js" 2
 
 <!-- reference style links -->
-
+[standard-packages]:https://github.com/standard/standard-packages/blob/master/tools/update.js
 [Github-API]: https://developer.github.com/v3/search/ 
 [searching-repositories]: https://help.github.com/articles/searching-repositories/
 [searching-code]: https://help.github.com/articles/searching-code/
